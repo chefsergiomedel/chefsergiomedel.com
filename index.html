@@ -120,6 +120,28 @@
   .gallery figure { margin: 0; }
   .gallery figcaption { font-size: 0.85rem; color: var(--muted); padding: 0.4rem 0 0; font-family: -apple-system, Helvetica, Arial, sans-serif; }
   footer { text-align: center; padding: 1.5rem; font-size: 0.8rem; color: var(--muted); font-family: -apple-system, Helvetica, Arial, sans-serif; }
+  .press {
+    background: #141414; color: #cfc7b8; text-align: center;
+    padding: 1.8rem 1.5rem; max-width: none; margin: 0;
+  }
+  .press .label {
+    font-family: -apple-system, Helvetica, Arial, sans-serif;
+    font-size: 0.75rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: #8a8072; margin-bottom: 1.1rem;
+  }
+  .press .logos {
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+    gap: 1.2rem 2.8rem;
+  }
+  .press .logos span {
+    font-size: 1.25rem; letter-spacing: 0.06em; color: #f5f1e8;
+    white-space: nowrap;
+  }
+  .press .logos span small {
+    display: block; font-size: 0.68rem; letter-spacing: 0.2em;
+    color: #8a8072; font-family: -apple-system, Helvetica, Arial, sans-serif;
+    text-transform: uppercase; margin-top: 0.2rem;
+  }
 </style>
 </head>
 <body>
@@ -174,6 +196,16 @@
   <a href="#gallery">Gallery</a>
   <a href="#contact">Contact</a>
 </nav>
+
+<section class="press">
+  <div class="label">As featured in</div>
+  <div class="logos">
+    <span>Top Chef<small>Chile · Season 1</small></span>
+    <span>El Comercio<small>Ecuador</small></span>
+    <span>Familia<small>Magazine</small></span>
+    <span>Discovery<small>Channel</small></span>
+  </div>
+</section>
 
 <section id="about">
   <h2>About</h2>
