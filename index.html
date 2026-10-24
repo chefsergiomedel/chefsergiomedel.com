@@ -20,22 +20,30 @@
     line-height: 1.7;
   }
   header {
-    background: #141414;
+    background: linear-gradient(rgba(10,10,10,0.55), rgba(10,10,10,0.55)), url('img/chile-collage.png') center/cover;
     color: #f5f1e8;
     text-align: center;
-    padding: 5rem 1.5rem 4rem;
+    padding: 7rem 1.5rem 6rem;
   }
   header h1 {
     font-size: clamp(2.2rem, 6vw, 3.6rem);
     letter-spacing: 0.12em;
     text-transform: uppercase;
     font-weight: 400;
+    animation: fadeUp 1.2s ease-out;
   }
   header .rule {
     width: 64px; height: 2px; background: var(--accent);
     margin: 1.2rem auto;
+    animation: fadeUp 1.2s ease-out 0.2s backwards;
   }
-  header p { font-size: 1.15rem; color: #cfc7b8; font-style: italic; }
+  header p { font-size: 1.15rem; color: #f5f1e8; font-style: italic; text-shadow: 0 1px 8px rgba(0,0,0,0.6); animation: fadeUp 1.2s ease-out 0.4s backwards; }
+  header .tagline { font-size: 0.95rem; color: #e8dcc2; margin-top: 0.8rem; font-style: normal; font-family: -apple-system, Helvetica, Arial, sans-serif; letter-spacing: 0.08em; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  html { scroll-behavior: smooth; }
   nav {
     background: #141414; border-top: 1px solid #2a2a2a;
     text-align: center; padding: 0.9rem;
@@ -64,16 +72,7 @@
   #contact a { color: #e8c98a; text-decoration: none; }
   #contact a:hover { text-decoration: underline; }
   #contact p { margin: 0.6rem 0; font-size: 1.1rem; }
-  .hero { position: relative; }
-  .hero img { width: 100%; max-height: 560px; object-fit: cover; display: block; }
-  .hero .caption {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.75));
-    color: #f5f1e8; text-align: center; padding: 3rem 1.5rem 1.2rem;
-    font-style: italic; font-size: 1.05rem;
-  }
   .roots { display: flex; gap: 2rem; align-items: flex-start; margin-top: 1.5rem; flex-wrap: wrap; }
-  .roots img { width: 280px; max-width: 100%; border-radius: 4px; }
   .roots .text { flex: 1; min-width: 260px; }
   .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin-top: 0.5rem; }
   .service { background: #fff; border: 1px solid #e8e0d2; border-radius: 6px; padding: 1.4rem 1.2rem; }
@@ -104,6 +103,7 @@
   <h1>Sergio Medel</h1>
   <div class="rule"></div>
   <p>Executive Chef</p>
+  <p class="tagline">From Valdivia, Chile — to the world</p>
 </header>
 
 <nav>
@@ -114,22 +114,12 @@
   <a href="#contact">Contact</a>
 </nav>
 
-<div class="hero">
-  <img src="img/chile-collage.png" alt="Chile — from the Atacama Desert to Patagonia">
-  <div class="caption">From the Atacama Desert to Patagonia — this is where I come from.</div>
-</div>
-
 <section id="about">
   <h2>About</h2>
   <div class="rule"></div>
   <p>I'm Sergio Medel, an Executive Chef based in southern Utah, currently leading the kitchen at <strong>Añu Restaurant</strong> inside the Hotel De Novo Springdale, Tapestry Collection by Hilton — minutes from Zion National Park.</p>
-  <div class="roots">
-    <img src="img/chile-mapuche.jpg" alt="Mapuche heritage, Chile">
-    <div class="text">
-      <p>I was born in Valdivia, Chile, where my love for cooking began. I trained in international gastronomy back home and even competed on the first season of Top Chef Chile — an experience that shaped the way I cook and lead.</p>
-      <p style="margin-top:1rem;">Chile gave me my roots: respect for the ingredient, fire, and feeding people well. From the Mapuche heritage of the south to the flavors of the whole country — that identity travels with me into every kitchen I lead.</p>
-    </div>
-  </div>
+  <p style="margin-top:1rem;">I was born in Valdivia, Chile, where my love for cooking began. I trained in international gastronomy back home and even competed on the first season of Top Chef Chile — an experience that shaped the way I cook and lead.</p>
+  <p style="margin-top:1rem;">Chile gave me my roots: respect for the ingredient, fire, and feeding people well. From the Mapuche heritage of the south to the flavors of the whole country — that identity travels with me into every kitchen I lead.</p>
   <p style="margin-top:1.5rem;">My cooking is rooted in classic technique and driven by the seasons: honest plates, bold flavors, and hospitality that makes people want to come back. Over the past decade I've opened restaurants, led high-volume kitchens, and built teams across California, Nevada, and Utah.</p>
 </section>
 
