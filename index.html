@@ -144,11 +144,12 @@
     display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
     gap: 1.2rem 2.8rem;
   }
-  .press .logos span {
+  .press .logos a {
     font-size: 1.25rem; letter-spacing: 0.06em; color: #f5f1e8;
-    white-space: nowrap;
+    white-space: nowrap; text-decoration: none;
   }
-  .press .logos span small {
+  .press .logos a:hover { text-decoration: underline; }
+  .press .logos a small {
     display: block; font-size: 0.68rem; letter-spacing: 0.2em;
     color: #8a8072; font-family: -apple-system, Helvetica, Arial, sans-serif;
     text-transform: uppercase; margin-top: 0.2rem;
@@ -213,7 +214,7 @@
   <div class="label">As featured in</div>
   <div class="logos">
     <span>Top Chef<small>Chile · Season 1</small></span>
-    <span>ProChile<small>Chilean Government</small></span>
+    <a href="https://acceso.prochile.cl/noticia/gastronomia-chilena-presente-en-quito/" target="_blank" rel="noopener">ProChile<small>Chilean Government</small></a>
     <span>El Comercio<small>Ecuador</small></span>
     <span>Familia<small>Magazine</small></span>
     <span>Discovery<small>Channel</small></span>
