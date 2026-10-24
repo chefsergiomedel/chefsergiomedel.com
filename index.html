@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chef Sergio Medel | Executive Chef</title>
-<meta name="description" content="Chef Sergio Medel — Executive Chef at Hotel De Novo Springdale, Tapestry Collection by Hilton. Modern American cuisine in the heart of Zion.">
+<title data-i18n="meta.title">Chef Sergio Medel | Executive Chef</title>
+<meta name="description" data-i18n="meta.desc" content="Chef Sergio Medel — Executive Chef at Hotel De Novo Springdale, Tapestry Collection by Hilton. Modern American cuisine in the heart of Zion.">
 <style>
   :root {
     --ink: #1a1a1a;
@@ -79,6 +79,14 @@
     font-family: -apple-system, Helvetica, Arial, sans-serif;
   }
   nav a:hover { color: #fff; }
+  #lang-toggle {
+    background: transparent; border: 1px solid #8a8072; border-radius: 4px;
+    color: #e8c98a; font-size: 0.8rem; letter-spacing: 0.14em;
+    font-family: -apple-system, Helvetica, Arial, sans-serif;
+    padding: 0.3rem 0.7rem; margin-left: 1.1rem; cursor: pointer;
+    text-transform: uppercase; vertical-align: middle;
+  }
+  #lang-toggle:hover { border-color: #e8c98a; color: #fff; }
   section { max-width: 760px; margin: 0 auto; padding: 4rem 1.5rem; }
   section h2 {
     font-size: 1.6rem; letter-spacing: 0.1em; text-transform: uppercase;
@@ -144,12 +152,12 @@
     display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
     gap: 1.2rem 2.8rem;
   }
-  .press .logos a {
+  .press .logos span, .press .logos a {
     font-size: 1.25rem; letter-spacing: 0.06em; color: #f5f1e8;
     white-space: nowrap; text-decoration: none;
   }
   .press .logos a:hover { text-decoration: underline; }
-  .press .logos a small {
+  .press .logos span small, .press .logos a small {
     display: block; font-size: 0.68rem; letter-spacing: 0.2em;
     color: #8a8072; font-family: -apple-system, Helvetica, Arial, sans-serif;
     text-transform: uppercase; margin-top: 0.2rem;
@@ -160,219 +168,374 @@
 
 <header>
   <div class="slideshow" id="slideshow">
-    <div class="slide active" style="background-image:url('img/chile/valdivia.jpg')" data-location="Valdivia · Los Ríos"></div>
-    <div class="slide" style="background-image:url('img/chile/santiago.jpg')" data-location="Santiago · Andes"></div>
-    <div class="slide" style="background-image:url('img/chile/araucania.jpg')" data-location="Araucanía"></div>
-    <div class="slide" style="background-image:url('img/chile/atacama-flamenco.jpg')" data-location="Atacama Desert"></div>
-    <div class="slide" style="background-image:url('img/chile/lauca-parinacota.jpg')" data-location="Lauca National Park"></div>
-    <div class="slide" style="background-image:url('img/chile/torres-cuernos.jpg')" data-location="Torres del Paine"></div>
-    <div class="slide" style="background-image:url('img/chile/torres-atardecer.jpg')" data-location="Torres del Paine"></div>
-    <div class="slide" style="background-image:url('img/chile/torres-base.jpg')" data-location="Torres del Paine"></div>
+    <div class="slide active" style="background-image:url('img/chile/valdivia.jpg')" data-location-en="Valdivia · Los Ríos" data-location-es="Valdivia · Los Ríos"></div>
+    <div class="slide" style="background-image:url('img/chile/santiago.jpg')" data-location-en="Santiago · Andes" data-location-es="Santiago · Andes"></div>
+    <div class="slide" style="background-image:url('img/chile/araucania.jpg')" data-location-en="Araucanía" data-location-es="La Araucanía"></div>
+    <div class="slide" style="background-image:url('img/chile/atacama-flamenco.jpg')" data-location-en="Atacama Desert" data-location-es="Desierto de Atacama"></div>
+    <div class="slide" style="background-image:url('img/chile/lauca-parinacota.jpg')" data-location-en="Lauca National Park" data-location-es="Parque Nacional Lauca"></div>
+    <div class="slide" style="background-image:url('img/chile/torres-cuernos.jpg')" data-location-en="Torres del Paine" data-location-es="Torres del Paine"></div>
+    <div class="slide" style="background-image:url('img/chile/torres-atardecer.jpg')" data-location-en="Torres del Paine" data-location-es="Torres del Paine"></div>
+    <div class="slide" style="background-image:url('img/chile/torres-base.jpg')" data-location-en="Torres del Paine" data-location-es="Torres del Paine"></div>
   </div>
   <div class="overlay"></div>
   <div class="content">
     <h1>Sergio Medel</h1>
     <div class="rule"></div>
-    <p>Executive Chef</p>
-    <p class="tagline">Food and Beverage Experiences</p>
+    <p data-i18n="header.role">Executive Chef</p>
+    <p class="tagline" data-i18n="header.tagline">Food and Beverage Experiences</p>
   </div>
   <div class="location" id="slide-location">Valdivia · Los Ríos</div>
 </header>
-<script>
-(function() {
-  var slides = document.querySelectorAll('#slideshow .slide');
-  var label = document.getElementById('slide-location');
-  var i = 0;
-  // Preload
-  slides.forEach(function(s) {
-    var img = new Image();
-    img.src = s.style.backgroundImage.slice(5, -2);
-  });
-  setInterval(function() {
-    slides[i].classList.remove('active');
-    i = (i + 1) % slides.length;
-    slides[i].classList.add('active');
-    label.style.opacity = 0;
-    setTimeout(function() {
-      label.textContent = slides[i].getAttribute('data-location');
-      label.style.opacity = 1;
-    }, 600);
-  }, 5000);
-})();
-</script>
 
 <nav>
-  <a href="#about">About</a>
-  <a href="#experience">My Story</a>
-  <a href="#services">Services</a>
-  <a href="#testimonials">Testimonials</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#contact">Contact</a>
+  <a href="#about" data-i18n="nav.about">About</a>
+  <a href="#experience" data-i18n="nav.story">My Story</a>
+  <a href="#services" data-i18n="nav.services">Services</a>
+  <a href="#testimonials" data-i18n="nav.testimonials">Testimonials</a>
+  <a href="#gallery" data-i18n="nav.gallery">Gallery</a>
+  <a href="#contact" data-i18n="nav.contact">Contact</a>
+  <button id="lang-toggle" type="button">ES</button>
 </nav>
 
 <section class="press">
-  <div class="label">As featured in</div>
+  <div class="label" data-i18n="press.label">As featured in</div>
   <div class="logos">
-    <span>Top Chef<small>Chile · Season 1</small></span>
-    <a href="https://acceso.prochile.cl/noticia/gastronomia-chilena-presente-en-quito/" target="_blank" rel="noopener">ProChile<small>Chilean Government</small></a>
-    <span>El Comercio<small>Ecuador</small></span>
-    <span>Familia<small>Magazine</small></span>
-    <span>Discovery<small>Channel</small></span>
+    <span data-i18n="press.topchef">Top Chef<small>Chile · Season 1</small></span>
+    <a href="https://acceso.prochile.cl/noticia/gastronomia-chilena-presente-en-quito/" target="_blank" rel="noopener" data-i18n="press.prochile">ProChile<small>Chilean Government</small></a>
+    <span data-i18n="press.comercio">El Comercio<small>Ecuador</small></span>
+    <span data-i18n="press.familia">Familia<small>Magazine</small></span>
+    <span data-i18n="press.discovery">Discovery<small>Channel</small></span>
   </div>
 </section>
 
 <section id="about">
-  <h2>About</h2>
+  <h2 data-i18n="about.h">About</h2>
   <div class="rule"></div>
-  <p>I'm Sergio Medel, an Executive Chef based in southern Utah, currently leading the kitchen at <strong>Añu Restaurant</strong> inside the Hotel De Novo Springdale, Tapestry Collection by Hilton — minutes from Zion National Park.</p>
-  <p style="margin-top:1rem;">I was born in Valdivia, Chile, where my love for cooking began. I trained in international gastronomy back home and even competed on the first season of Top Chef Chile — an experience that shaped the way I cook and lead.</p>
-  <p style="margin-top:1rem;">Chile gave me my roots: respect for the ingredient, fire, and feeding people well. From the Mapuche heritage of the south to the flavors of the whole country — that identity travels with me into every kitchen I lead.</p>
-  <p style="margin-top:1.5rem;">My cooking is rooted in classic technique and driven by the seasons: honest plates, bold flavors, and hospitality that makes people want to come back. Over the past decade I've opened restaurants, led high-volume kitchens, and built teams across California, Nevada, and Utah.</p>
+  <p data-i18n="about.p1">I'm Sergio Medel, an Executive Chef based in southern Utah, currently leading the kitchen at <strong>Añu Restaurant</strong> inside the Hotel De Novo Springdale, Tapestry Collection by Hilton — minutes from Zion National Park.</p>
+  <p style="margin-top:1rem;" data-i18n="about.p2">I was born in Valdivia, Chile, where my love for cooking began. I trained in international gastronomy back home and even competed on the first season of Top Chef Chile — an experience that shaped the way I cook and lead.</p>
+  <p style="margin-top:1rem;" data-i18n="about.p3">Chile gave me my roots: respect for the ingredient, fire, and feeding people well. From the Mapuche heritage of the south to the flavors of the whole country — that identity travels with me into every kitchen I lead.</p>
+  <p style="margin-top:1.5rem;" data-i18n="about.p4">My cooking is rooted in classic technique and driven by the seasons: honest plates, bold flavors, and hospitality that makes people want to come back. Over the past decade I've opened restaurants, led high-volume kitchens, and built teams across California, Nevada, and Utah.</p>
 </section>
 
 <section id="experience">
-  <h2>My Story</h2>
+  <h2 data-i18n="story.h">My Story</h2>
   <div class="rule"></div>
-  <p>My journey started in Valdivia, in the south of Chile — a land of rain, rivers, and deep Mapuche roots. That's where I fell in love with cooking: with fire, with honest ingredients, and with the idea that feeding people is one of the most human things you can do.</p>
-  <p style="margin-top:1rem;">I trained in international gastronomy back home, and life took me further than I ever imagined. I competed on the first season of <strong>Top Chef Chile</strong>, cooked Chilean food festivals abroad, and earned my stripes in some of the toughest kitchens in the business.</p>
-  <p style="margin-top:1rem;">In Los Angeles, I led <strong>Evan Steak House</strong> as Executive Chef. Then came <strong>Switchback Steak House</strong> (2021–2023), where I ran a high-volume kitchen night after night — consistency, cost control, and a brigade built to perform under pressure.</p>
-  <p style="margin-top:1rem;">In 2023 I got the call every chef dreams of: open a restaurant from zero. As <strong>Opening Executive Chef of Anterra</strong> (Curio Collection by Hilton), I built everything — the concept, the menus, the team, the standards.</p>
-  <p style="margin-top:1rem;">And since August 2024, I'm home: <strong>Executive Chef at the Hotel De Novo Springdale, Tapestry Collection by Hilton</strong>, leading <strong>Añu Restaurant</strong> at the gates of Zion National Park. Every plate I send out carries a piece of Valdivia with it.</p>
+  <p data-i18n="story.p1">My journey started in Valdivia, in the south of Chile — a land of rain, rivers, and deep Mapuche roots. That's where I fell in love with cooking: with fire, with honest ingredients, and with the idea that feeding people is one of the most human things you can do.</p>
+  <p style="margin-top:1rem;" data-i18n="story.p2">I trained in international gastronomy back home, and life took me further than I ever imagined. I competed on the first season of <strong>Top Chef Chile</strong>, cooked Chilean food festivals abroad, and earned my stripes in some of the toughest kitchens in the business.</p>
+  <p style="margin-top:1rem;" data-i18n="story.p3">In Los Angeles, I led <strong>Evan Steak House</strong> as Executive Chef. Then came <strong>Switchback Steak House</strong> (2021–2023), where I ran a high-volume kitchen night after night — consistency, cost control, and a brigade built to perform under pressure.</p>
+  <p style="margin-top:1rem;" data-i18n="story.p4">In 2023 I got the call every chef dreams of: open a restaurant from zero. As <strong>Opening Executive Chef of Anterra</strong> (Curio Collection by Hilton), I built everything — the concept, the menus, the team, the standards.</p>
+  <p style="margin-top:1rem;" data-i18n="story.p5">And since August 2024, I'm home: <strong>Executive Chef at the Hotel De Novo Springdale, Tapestry Collection by Hilton</strong>, leading <strong>Añu Restaurant</strong> at the gates of Zion National Park. Every plate I send out carries a piece of Valdivia with it.</p>
 </section>
 
 <section id="services">
-  <h2>Services</h2>
+  <h2 data-i18n="services.h">Services</h2>
   <div class="rule"></div>
   <div class="services">
     <div class="service">
-      <h3>Catering</h3>
-      <p>Full-service catering for events of any size — custom menus, professional staff, and flawless execution.</p>
+      <h3 data-i18n="svc1.t">Catering</h3>
+      <p data-i18n="svc1.d">Full-service catering for events of any size — custom menus, professional staff, and flawless execution.</p>
     </div>
     <div class="service">
-      <h3>Weddings</h3>
-      <p>Unforgettable wedding menus, from intimate ceremonies to grand receptions. Tastings and custom planning included.</p>
+      <h3 data-i18n="svc2.t">Weddings</h3>
+      <p data-i18n="svc2.d">Unforgettable wedding menus, from intimate ceremonies to grand receptions. Tastings and custom planning included.</p>
     </div>
     <div class="service">
-      <h3>Corporate & Meetings</h3>
-      <p>Business lunches, conferences, and corporate events with polished, reliable service.</p>
+      <h3 data-i18n="svc3.t">Corporate & Meetings</h3>
+      <p data-i18n="svc3.d">Business lunches, conferences, and corporate events with polished, reliable service.</p>
     </div>
     <div class="service">
-      <h3>Private Dinners</h3>
-      <p>Special occasions deserve a personal touch — private chef dinners tailored to you and your guests.</p>
+      <h3 data-i18n="svc4.t">Private Dinners</h3>
+      <p data-i18n="svc4.d">Special occasions deserve a personal touch — private chef dinners tailored to you and your guests.</p>
     </div>
     <div class="service">
-      <h3>Consulting</h3>
-      <p>Culinary consulting for restaurants and hotels — menu development, kitchen operations, cost control, and team training.</p>
+      <h3 data-i18n="svc5.t">Consulting</h3>
+      <p data-i18n="svc5.d">Culinary consulting for restaurants and hotels — menu development, kitchen operations, cost control, and team training.</p>
     </div>
     <div class="service">
-      <h3>Restaurant Openings</h3>
-      <p>Opening restaurants from zero: concept, menus, hiring and training the brigade, and setting the standard from day one.</p>
+      <h3 data-i18n="svc6.t">Restaurant Openings</h3>
+      <p data-i18n="svc6.d">Opening restaurants from zero: concept, menus, hiring and training the brigade, and setting the standard from day one.</p>
     </div>
   </div>
 </section>
 
 <section id="gallery">
-  <h2>Gallery</h2>
+  <h2 data-i18n="gallery.h">Gallery</h2>
   <div class="rule"></div>
   <div class="gallery">
     <figure>
       <img src="img/foto-topchef.jpg" alt="Sergio Medel on Top Chef Chile">
-      <figcaption>Top Chef Chile</figcaption>
+      <figcaption data-i18n="gal1">Top Chef Chile</figcaption>
     </figure>
     <figure>
       <img src="img/foto-cocina-bn.jpg" alt="Sergio Medel at work in the kitchen">
-      <figcaption>In the kitchen</figcaption>
+      <figcaption data-i18n="gal2">In the kitchen</figcaption>
     </figure>
     <figure>
       <img src="img/foto-ventana.jpg" alt="Sergio Medel portrait">
-      <figcaption>Portrait</figcaption>
+      <figcaption data-i18n="gal3">Portrait</figcaption>
     </figure>
     <figure>
       <img src="img/foto-diario.jpg" alt="Sergio Medel featured in El Comercio, Ecuador">
-      <figcaption>Chilean food festival, Hilton Quito — El Comercio</figcaption>
+      <figcaption data-i18n="gal4">Chilean food festival, Hilton Quito — El Comercio</figcaption>
     </figure>
     <figure>
       <img src="img/foto-revista.jpg" alt="Sergio Medel in Familia magazine">
-      <figcaption>Revista Familia — Chilean flavors for Ecuador</figcaption>
+      <figcaption data-i18n="gal5">Revista Familia — Chilean flavors for Ecuador</figcaption>
     </figure>
     <figure>
       <img src="img/foto-discovery.jpg" alt="Sergio Medel bio">
-      <figcaption>Career highlights</figcaption>
+      <figcaption data-i18n="gal6">Career highlights</figcaption>
     </figure>
   </div>
 </section>
 
 <section id="testimonials">
-  <h2>What Guests Say</h2>
+  <h2 data-i18n="testi.h">What Guests Say</h2>
   <div class="rule"></div>
   <div class="testimonials">
     <div class="testimonial">
       <div class="stars">★★★★★</div>
-      <blockquote>"He said we would be eating at the best place in Springdale — and he was telling the truth! He gave us his personal cell number if I needed anything, even during the meal. Who does this?! Oh my, the food! Out of this world!"</blockquote>
-      <div class="who"><strong>Allison A.</strong> · Google review · Rehearsal dinner, Añu Restaurant</div>
+      <blockquote data-i18n="t1.q">"He said we would be eating at the best place in Springdale — and he was telling the truth! He gave us his personal cell number if I needed anything, even during the meal. Who does this?! Oh my, the food! Out of this world!"</blockquote>
+      <div class="who" data-i18n="t1.w"><strong>Allison A.</strong> · Google review · Rehearsal dinner, Añu Restaurant</div>
     </div>
     <div class="testimonial">
       <div class="stars">★★★★★</div>
-      <blockquote>"This chef knows what he's doing! The best food we've had in the USA since we arrived for our vacation 10 days ago. Superb. Well done chef and his great team."</blockquote>
-      <div class="who"><strong>David K.</strong> · Añu Restaurant guest</div>
+      <blockquote data-i18n="t2.q">"This chef knows what he's doing! The best food we've had in the USA since we arrived for our vacation 10 days ago. Superb. Well done chef and his great team."</blockquote>
+      <div class="who" data-i18n="t2.w"><strong>David K.</strong> · Añu Restaurant guest</div>
     </div>
     <div class="testimonial">
       <div class="stars">★★★★★</div>
-      <blockquote>"The chef Sergio did an amazing job preparing the food — so glad we had dinner here. We will be back again!"</blockquote>
-      <div class="who"><strong>Google review</strong> · Añu Restaurant guest</div>
+      <blockquote data-i18n="t3.q">"The chef Sergio did an amazing job preparing the food — so glad we had dinner here. We will be back again!"</blockquote>
+      <div class="who" data-i18n="t3.w"><strong>Google review</strong> · Añu Restaurant guest</div>
     </div>
     <div class="testimonial">
       <div class="stars">★★★★★</div>
-      <blockquote>"We got to meet Sergio (the chef) himself. He is an extremely nice and humble person. The dishes he creates are really amazing and we truly did not have a bad bite here."</blockquote>
-      <div class="who"><strong>Zuzanna M.</strong> · Google review · Añu Restaurant</div>
+      <blockquote data-i18n="t4.q">"We got to meet Sergio (the chef) himself. He is an extremely nice and humble person. The dishes he creates are really amazing and we truly did not have a bad bite here."</blockquote>
+      <div class="who" data-i18n="t4.w"><strong>Zuzanna M.</strong> · Google review · Añu Restaurant</div>
     </div>
     <div class="testimonial">
       <div class="stars">★★★★★</div>
-      <blockquote>"Shout out to head chef Sergio who came out and explained some of the more intricate aspects of the dishes to us."</blockquote>
-      <div class="who"><strong>Alvaro S.</strong> · Google review · Añu Restaurant</div>
+      <blockquote data-i18n="t5.q">"Shout out to head chef Sergio who came out and explained some of the more intricate aspects of the dishes to us."</blockquote>
+      <div class="who" data-i18n="t5.w"><strong>Alvaro S.</strong> · Google review · Añu Restaurant</div>
     </div>
     <div class="testimonial">
       <div class="stars">★★★★★</div>
-      <blockquote>"I really appreciated that the chef is from Chile and we got to try some flavors from there. Overall a gem of a place."</blockquote>
-      <div class="who"><strong>Linnet J.</strong> · Google review · Añu Restaurant</div>
+      <blockquote data-i18n="t6.q">"I really appreciated that the chef is from Chile and we got to try some flavors from there. Overall a gem of a place."</blockquote>
+      <div class="who" data-i18n="t6.w"><strong>Linnet J.</strong> · Google review · Añu Restaurant</div>
     </div>
   </div>
 </section>
 
 <section id="contact">
-  <h2>Contact</h2>
+  <h2 data-i18n="contact.h">Contact</h2>
   <div class="rule"></div>
   <p><a href="mailto:chef@chefsergiomedel.com">chef@chefsergiomedel.com</a></p>
   <p><a href="tel:+14355229081">(435) 522-9081</a></p>
   <p style="margin-top:1.2rem;"><a href="https://www.linkedin.com/in/sergio-a-medel-r-6174b360">LinkedIn</a></p>
 
   <form class="contact-form" action="https://formsubmit.co/chef@chefsergiomedel.com" method="POST">
-    <input type="hidden" name="_subject" value="New inquiry from chefsergiomedel.com">
+    <input type="hidden" name="_subject" id="form-subject" value="New inquiry from chefsergiomedel.com">
     <input type="hidden" name="_captcha" value="false">
-    <label for="name">Name</label>
+    <label for="name" data-i18n="form.name">Name</label>
     <input type="text" id="name" name="name" required>
-    <label for="phone">Phone</label>
+    <label for="phone" data-i18n="form.phone">Phone</label>
     <input type="tel" id="phone" name="phone" required>
-    <label for="service">Service needed</label>
+    <label for="service" data-i18n="form.service">Service needed</label>
     <select id="service" name="service" required>
-      <option value="">Select a service…</option>
-      <option value="catering">Catering</option>
-      <option value="wedding">Wedding</option>
-      <option value="corporate">Corporate / Meeting</option>
-      <option value="private-dinner">Private dinner</option>
-      <option value="consulting">Consulting</option>
-      <option value="opening">Restaurant opening</option>
-      <option value="other">Other</option>
+      <option value="" data-i18n="opt.select">Select a service…</option>
+      <option value="catering" data-i18n="opt.catering">Catering</option>
+      <option value="wedding" data-i18n="opt.wedding">Wedding</option>
+      <option value="corporate" data-i18n="opt.corporate">Corporate / Meeting</option>
+      <option value="private-dinner" data-i18n="opt.private">Private dinner</option>
+      <option value="consulting" data-i18n="opt.consulting">Consulting</option>
+      <option value="opening" data-i18n="opt.opening">Restaurant opening</option>
+      <option value="other" data-i18n="opt.other">Other</option>
     </select>
-    <label for="message">Message</label>
+    <label for="message" data-i18n="form.message">Message</label>
     <textarea id="message" name="message" rows="4"></textarea>
-    <button type="submit">Send</button>
+    <button type="submit" data-i18n="form.send">Send</button>
   </form>
 </section>
 
 <footer>
   © 2026 Sergio Medel · chefsergiomedel.com
 </footer>
+
+<script>
+(function() {
+  var slides = document.querySelectorAll('#slideshow .slide');
+  var label = document.getElementById('slide-location');
+  var i = 0;
+  slides.forEach(function(s) {
+    var img = new Image();
+    img.src = s.style.backgroundImage.slice(5, -2);
+  });
+  function currentLoc(el) {
+    var lang = document.documentElement.lang || 'en';
+    return el.getAttribute('data-location-' + lang) || el.getAttribute('data-location-en');
+  }
+  setInterval(function() {
+    slides[i].classList.remove('active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('active');
+    label.style.opacity = 0;
+    setTimeout(function() {
+      label.textContent = currentLoc(slides[i]);
+      label.style.opacity = 1;
+    }, 600);
+  }, 5000);
+  window.__refreshSlideLoc = function() {
+    label.textContent = currentLoc(slides[i]);
+  };
+})();
+</script>
+
+<script>
+var I18N = {
+en: {
+  "meta.title": "Chef Sergio Medel | Executive Chef",
+  "meta.desc": "Chef Sergio Medel — Executive Chef at Hotel De Novo Springdale, Tapestry Collection by Hilton. Modern American cuisine in the heart of Zion.",
+  "nav.about": "About", "nav.story": "My Story", "nav.services": "Services",
+  "nav.testimonials": "Testimonials", "nav.gallery": "Gallery", "nav.contact": "Contact",
+  "header.role": "Executive Chef",
+  "header.tagline": "Food and Beverage Experiences",
+  "press.label": "As featured in",
+  "press.topchef": "Top Chef<small>Chile · Season 1</small>",
+  "press.prochile": "ProChile<small>Chilean Government</small>",
+  "press.comercio": "El Comercio<small>Ecuador</small>",
+  "press.familia": "Familia<small>Magazine</small>",
+  "press.discovery": "Discovery<small>Channel</small>",
+  "about.h": "About",
+  "about.p1": "I'm Sergio Medel, an Executive Chef based in southern Utah, currently leading the kitchen at <strong>Añu Restaurant</strong> inside the Hotel De Novo Springdale, Tapestry Collection by Hilton — minutes from Zion National Park.",
+  "about.p2": "I was born in Valdivia, Chile, where my love for cooking began. I trained in international gastronomy back home and even competed on the first season of Top Chef Chile — an experience that shaped the way I cook and lead.",
+  "about.p3": "Chile gave me my roots: respect for the ingredient, fire, and feeding people well. From the Mapuche heritage of the south to the flavors of the whole country — that identity travels with me into every kitchen I lead.",
+  "about.p4": "My cooking is rooted in classic technique and driven by the seasons: honest plates, bold flavors, and hospitality that makes people want to come back. Over the past decade I've opened restaurants, led high-volume kitchens, and built teams across California, Nevada, and Utah.",
+  "story.h": "My Story",
+  "story.p1": "My journey started in Valdivia, in the south of Chile — a land of rain, rivers, and deep Mapuche roots. That's where I fell in love with cooking: with fire, with honest ingredients, and with the idea that feeding people is one of the most human things you can do.",
+  "story.p2": "I trained in international gastronomy back home, and life took me further than I ever imagined. I competed on the first season of <strong>Top Chef Chile</strong>, cooked Chilean food festivals abroad, and earned my stripes in some of the toughest kitchens in the business.",
+  "story.p3": "In Los Angeles, I led <strong>Evan Steak House</strong> as Executive Chef. Then came <strong>Switchback Steak House</strong> (2021–2023), where I ran a high-volume kitchen night after night — consistency, cost control, and a brigade built to perform under pressure.",
+  "story.p4": "In 2023 I got the call every chef dreams of: open a restaurant from zero. As <strong>Opening Executive Chef of Anterra</strong> (Curio Collection by Hilton), I built everything — the concept, the menus, the team, the standards.",
+  "story.p5": "And since August 2024, I'm home: <strong>Executive Chef at the Hotel De Novo Springdale, Tapestry Collection by Hilton</strong>, leading <strong>Añu Restaurant</strong> at the gates of Zion National Park. Every plate I send out carries a piece of Valdivia with it.",
+  "services.h": "Services",
+  "svc1.t": "Catering", "svc1.d": "Full-service catering for events of any size — custom menus, professional staff, and flawless execution.",
+  "svc2.t": "Weddings", "svc2.d": "Unforgettable wedding menus, from intimate ceremonies to grand receptions. Tastings and custom planning included.",
+  "svc3.t": "Corporate & Meetings", "svc3.d": "Business lunches, conferences, and corporate events with polished, reliable service.",
+  "svc4.t": "Private Dinners", "svc4.d": "Special occasions deserve a personal touch — private chef dinners tailored to you and your guests.",
+  "svc5.t": "Consulting", "svc5.d": "Culinary consulting for restaurants and hotels — menu development, kitchen operations, cost control, and team training.",
+  "svc6.t": "Restaurant Openings", "svc6.d": "Opening restaurants from zero: concept, menus, hiring and training the brigade, and setting the standard from day one.",
+  "gallery.h": "Gallery",
+  "gal1": "Top Chef Chile", "gal2": "In the kitchen", "gal3": "Portrait",
+  "gal4": "Chilean food festival, Hilton Quito — El Comercio",
+  "gal5": "Revista Familia — Chilean flavors for Ecuador",
+  "gal6": "Career highlights",
+  "testi.h": "What Guests Say",
+  "t1.q": "\u201CHe said we would be eating at the best place in Springdale \u2014 and he was telling the truth! He gave us his personal cell number if I needed anything, even during the meal. Who does this?! Oh my, the food! Out of this world!\u201D",
+  "t1.w": "<strong>Allison A.</strong> \u00B7 Google review \u00B7 Rehearsal dinner, A\u00F1u Restaurant",
+  "t2.q": "\u201CThis chef knows what he's doing! The best food we've had in the USA since we arrived for our vacation 10 days ago. Superb. Well done chef and his great team.\u201D",
+  "t2.w": "<strong>David K.</strong> \u00B7 A\u00F1u Restaurant guest",
+  "t3.q": "\u201CThe chef Sergio did an amazing job preparing the food \u2014 so glad we had dinner here. We will be back again!\u201D",
+  "t3.w": "<strong>Google review</strong> \u00B7 A\u00F1u Restaurant guest",
+  "t4.q": "\u201CWe got to meet Sergio (the chef) himself. He is an extremely nice and humble person. The dishes he creates are really amazing and we truly did not have a bad bite here.\u201D",
+  "t4.w": "<strong>Zuzanna M.</strong> \u00B7 Google review \u00B7 A\u00F1u Restaurant",
+  "t5.q": "\u201CShout out to head chef Sergio who came out and explained some of the more intricate aspects of the dishes to us.\u201D",
+  "t5.w": "<strong>Alvaro S.</strong> \u00B7 Google review \u00B7 A\u00F1u Restaurant",
+  "t6.q": "\u201CI really appreciated that the chef is from Chile and we got to try some flavors from there. Overall a gem of a place.\u201D",
+  "t6.w": "<strong>Linnet J.</strong> \u00B7 Google review \u00B7 A\u00F1u Restaurant",
+  "contact.h": "Contact",
+  "form.name": "Name", "form.phone": "Phone", "form.service": "Service needed",
+  "form.message": "Message", "form.send": "Send",
+  "opt.select": "Select a service\u2026", "opt.catering": "Catering", "opt.wedding": "Wedding",
+  "opt.corporate": "Corporate / Meeting", "opt.private": "Private dinner",
+  "opt.consulting": "Consulting", "opt.opening": "Restaurant opening", "opt.other": "Other",
+  "form.subject": "New inquiry from chefsergiomedel.com"
+},
+es: {
+  "meta.title": "Chef Sergio Medel | Chef Ejecutivo",
+  "meta.desc": "Chef Sergio Medel — Chef Ejecutivo del Hotel De Novo Springdale, Tapestry Collection by Hilton. Cocina americana moderna en el corazón de Zion.",
+  "nav.about": "Sobre mí", "nav.story": "Mi historia", "nav.services": "Servicios",
+  "nav.testimonials": "Testimonios", "nav.gallery": "Galería", "nav.contact": "Contacto",
+  "header.role": "Chef Ejecutivo",
+  "header.tagline": "Experiencias de Alimentos y Bebidas",
+  "press.label": "Destacados en",
+  "press.topchef": "Top Chef<small>Chile · Temporada 1</small>",
+  "press.prochile": "ProChile<small>Gobierno de Chile</small>",
+  "press.comercio": "El Comercio<small>Ecuador</small>",
+  "press.familia": "Familia<small>Revista</small>",
+  "press.discovery": "Discovery<small>Canal</small>",
+  "about.h": "Sobre mí",
+  "about.p1": "Soy Sergio Medel, Chef Ejecutivo radicado en el sur de Utah, actualmente a cargo de la cocina del <strong>Restaurante Añu</strong> dentro del Hotel De Novo Springdale, Tapestry Collection by Hilton — a minutos del Parque Nacional Zion.",
+  "about.p2": "Nací en Valdivia, Chile, donde nació mi amor por la cocina. Estudié gastronomía internacional en mi país e incluso competí en la primera temporada de Top Chef Chile — una experiencia que marcó mi forma de cocinar y de liderar.",
+  "about.p3": "Chile me dio mis raíces: respeto por el ingrediente, el fuego y el alimentar bien a la gente. Desde la herencia mapuche del sur hasta los sabores de todo el país — esa identidad me acompaña en cada cocina que lidero.",
+  "about.p4": "Mi cocina se basa en la técnica clásica y la impulsan las estaciones: platos honestos, sabores intensos y una hospitalidad que hace que la gente quiera volver. En la última década he abierto restaurantes, liderado cocinas de alto volumen y formado equipos en California, Nevada y Utah.",
+  "story.h": "Mi historia",
+  "story.p1": "Mi camino comenzó en Valdivia, en el sur de Chile — tierra de lluvia, ríos y profundas raíces mapuches. Ahí me enamoré de la cocina: del fuego, de los ingredientes honestos y de la idea de que alimentar a la gente es una de las cosas más humanas que existen.",
+  "story.p2": "Estudié gastronomía internacional en mi país, y la vida me llevó más lejos de lo que jamás imaginé. Competí en la primera temporada de <strong>Top Chef Chile</strong>, cociné en festivales de comida chilena en el extranjero y me gané mis galones en algunas de las cocinas más exigentes del rubro.",
+  "story.p3": "En Los Ángeles, lideré <strong>Evan Steak House</strong> como Chef Ejecutivo. Luego vino <strong>Switchback Steak House</strong> (2021–2023), donde dirigí una cocina de alto volumen noche tras noche — consistencia, control de costos y una brigada preparada para rendir bajo presión.",
+  "story.p4": "En 2023 recibí la llamada con la que todo chef sueña: abrir un restaurante desde cero. Como <strong>Chef Ejecutivo de Apertura de Anterra</strong> (Curio Collection by Hilton), construí todo — el concepto, los menús, el equipo, los estándares.",
+  "story.p5": "Y desde agosto de 2024, estoy en casa: <strong>Chef Ejecutivo del Hotel De Novo Springdale, Tapestry Collection by Hilton</strong>, liderando el <strong>Restaurante Añu</strong> a las puertas del Parque Nacional Zion. Cada plato que sale de mi cocina lleva un pedazo de Valdivia.",
+  "services.h": "Servicios",
+  "svc1.t": "Banquetería", "svc1.d": "Banquetería integral para eventos de cualquier tamaño — menús a medida, personal profesional y ejecución impecable.",
+  "svc2.t": "Matrimonios", "svc2.d": "Menús de matrimonio inolvidables, desde ceremonias íntimas hasta grandes recepciones. Degustaciones y planificación a medida incluidas.",
+  "svc3.t": "Corporativos y reuniones", "svc3.d": "Almuerzos de negocios, conferencias y eventos corporativos con un servicio pulido y confiable.",
+  "svc4.t": "Cenas privadas", "svc4.d": "Las ocasiones especiales merecen un toque personal — cenas de chef privado adaptadas a ti y tus invitados.",
+  "svc5.t": "Consultoría", "svc5.d": "Consultoría culinaria para restaurantes y hoteles — desarrollo de menús, operaciones de cocina, control de costos y formación de equipos.",
+  "svc6.t": "Apertura de restaurantes", "svc6.d": "Apertura de restaurantes desde cero: concepto, menús, contratación y formación de la brigada, y el estándar desde el primer día.",
+  "gallery.h": "Galería",
+  "gal1": "Top Chef Chile", "gal2": "En la cocina", "gal3": "Retrato",
+  "gal4": "Festival de comida chilena, Hilton Quito — El Comercio",
+  "gal5": "Revista Familia — Sabores chilenos para Ecuador",
+  "gal6": "Momentos de mi carrera",
+  "testi.h": "Lo que dicen mis invitados",
+  "t1.q": "\u201CDijo que comeríamos en el mejor lugar de Springdale — ¡y decía la verdad! Me dio su número personal por si necesitaba algo, incluso durante la cena. ¿Quién hace eso? ¡Oh, la comida! ¡De otro mundo!\u201D",
+  "t1.w": "<strong>Allison A.</strong> \u00B7 Reseña de Google \u00B7 Cena de ensayo, Restaurante Añu",
+  "t2.q": "\u201C¡Este chef sabe lo que hace! La mejor comida que hemos probado en EE.UU. desde que llegamos de vacaciones hace 10 días. Sobresaliente. Bien hecho, chef y su gran equipo.\u201D",
+  "t2.w": "<strong>David K.</strong> \u00B7 Invitado del Restaurante Añu",
+  "t3.q": "\u201CEl chef Sergio hizo un trabajo increíble preparando la comida — qué bueno que cenamos aquí. ¡Volveremos!\u201D",
+  "t3.w": "<strong>Reseña de Google</strong> \u00B7 Invitado del Restaurante Añu",
+  "t4.q": "\u201CPudimos conocer a Sergio (el chef) en persona. Es una persona extremadamente amable y humilde. Los platos que crea son realmente increíbles y no probamos ni un bocado malo.\u201D",
+  "t4.w": "<strong>Zuzanna M.</strong> \u00B7 Reseña de Google \u00B7 Restaurante Añu",
+  "t5.q": "\u201CMención especial al chef Sergio, que salió a explicarnos algunos de los aspectos más elaborados de los platos.\u201D",
+  "t5.w": "<strong>Alvaro S.</strong> \u00B7 Reseña de Google \u00B7 Restaurante Añu",
+  "t6.q": "\u201CValoré mucho que el chef sea de Chile y que pudiéramos probar sabores de allá. En general, un lugar joya.\u201D",
+  "t6.w": "<strong>Linnet J.</strong> \u00B7 Reseña de Google \u00B7 Restaurante Añu",
+  "contact.h": "Contacto",
+  "form.name": "Nombre", "form.phone": "Teléfono", "form.service": "Servicio requerido",
+  "form.message": "Mensaje", "form.send": "Enviar",
+  "opt.select": "Elige un servicio\u2026", "opt.catering": "Banquetería", "opt.wedding": "Matrimonio",
+  "opt.corporate": "Corporativo / Reunión", "opt.private": "Cena privada",
+  "opt.consulting": "Consultoría", "opt.opening": "Apertura de restaurante", "opt.other": "Otro",
+  "form.subject": "Nueva consulta desde chefsergiomedel.com"
+}
+};
+(function() {
+  var btn = document.getElementById('lang-toggle');
+  function setLang(lang) {
+    var dict = I18N[lang] || I18N.en;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] === undefined) return;
+      var tag = el.tagName.toLowerCase();
+      if (tag === 'meta') { el.setAttribute('content', dict[key]); }
+      else if (tag === 'title') { el.textContent = dict[key]; }
+      else if (tag === 'option') { el.textContent = dict[key]; }
+      else { el.innerHTML = dict[key]; }
+    });
+    var subj = document.getElementById('form-subject');
+    if (subj && dict['form.subject']) subj.value = dict['form.subject'];
+    document.documentElement.lang = lang;
+    btn.textContent = (lang === 'en') ? 'ES' : 'EN';
+    if (window.__refreshSlideLoc) window.__refreshSlideLoc();
+    try { localStorage.setItem('site-lang', lang); } catch(e) {}
+  }
+  btn.addEventListener('click', function() {
+    var cur = document.documentElement.lang || 'en';
+    setLang(cur === 'en' ? 'es' : 'en');
+  });
+  var saved = 'en';
+  try { saved = localStorage.getItem('site-lang') || 'en'; } catch(e) {}
+  setLang(saved);
+})();
+</script>
 
 </body>
 </html>
