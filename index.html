@@ -118,6 +118,18 @@
   .gallery img { width: 100%; height: 260px; object-fit: cover; display: block; border-radius: 4px; }
   .gallery figure { margin: 0; }
   .gallery figcaption { font-size: 0.85rem; color: var(--muted); padding: 0.4rem 0 0; font-family: -apple-system, Helvetica, Arial, sans-serif; }
+  .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.4rem; margin-top: 0.5rem; }
+  .testimonial {
+    background: #fff; border: 1px solid #e8e0d2; border-radius: 6px;
+    padding: 1.6rem 1.4rem; display: flex; flex-direction: column;
+  }
+  .testimonial .stars { color: var(--accent); letter-spacing: 0.2em; margin-bottom: 0.8rem; font-size: 0.95rem; }
+  .testimonial blockquote { font-style: italic; font-size: 1.02rem; flex: 1; }
+  .testimonial .who {
+    margin-top: 1rem; font-family: -apple-system, Helvetica, Arial, sans-serif;
+    font-size: 0.88rem; color: var(--muted);
+  }
+  .testimonial .who strong { color: var(--ink); }
   footer { text-align: center; padding: 1.5rem; font-size: 0.8rem; color: var(--muted); font-family: -apple-system, Helvetica, Arial, sans-serif; }
   .press {
     background: #141414; color: #cfc7b8; text-align: center;
@@ -192,6 +204,7 @@
   <a href="#about">About</a>
   <a href="#experience">My Story</a>
   <a href="#services">Services</a>
+  <a href="#testimonials">Testimonials</a>
   <a href="#gallery">Gallery</a>
   <a href="#contact">Contact</a>
 </nav>
@@ -284,6 +297,28 @@
       <img src="img/foto-discovery.jpg" alt="Sergio Medel bio">
       <figcaption>Career highlights</figcaption>
     </figure>
+  </div>
+</section>
+
+<section id="testimonials">
+  <h2>What Guests Say</h2>
+  <div class="rule"></div>
+  <div class="testimonials">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <blockquote>"He said we would be eating at the best place in Springdale — and he was telling the truth! He gave us his personal cell number if I needed anything, even during the meal. Who does this?! Oh my, the food! Out of this world!"</blockquote>
+      <div class="who"><strong>Allison A.</strong> · Google review · Rehearsal dinner, Añu Restaurant</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <blockquote>"This chef knows what he's doing! The best food we've had in the USA since we arrived for our vacation 10 days ago. Superb. Well done chef and his great team."</blockquote>
+      <div class="who"><strong>David K.</strong> · Añu Restaurant guest</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <blockquote>"The chef Sergio did an amazing job preparing the food — so glad we had dinner here. We will be back again!"</blockquote>
+      <div class="who"><strong>Google review</strong> · Añu Restaurant guest</div>
+    </div>
   </div>
 </section>
 
