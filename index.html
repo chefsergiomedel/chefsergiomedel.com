@@ -20,11 +20,28 @@
     line-height: 1.7;
   }
   header {
-    background: linear-gradient(rgba(10,10,10,0.45), rgba(10,10,10,0.45)), url('img/araucarias.jpg') center/cover;
+    position: relative;
     color: #f5f1e8;
     text-align: center;
     padding: 7rem 1.5rem 6rem;
+    overflow: hidden;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
+  .slideshow { position: absolute; inset: 0; z-index: 0; }
+  .slideshow .slide {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    opacity: 0; transition: opacity 1.8s ease-in-out;
+  }
+  .slideshow .slide.active { opacity: 1; }
+  header .overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(rgba(10,10,10,0.45), rgba(10,10,10,0.55));
+  }
+  header .content { position: relative; z-index: 2; }
   header h1 {
     font-size: clamp(2.2rem, 6vw, 3.6rem);
     letter-spacing: 0.12em;
@@ -39,6 +56,13 @@
   }
   header p { font-size: 1.15rem; color: #f5f1e8; font-style: italic; text-shadow: 0 1px 8px rgba(0,0,0,0.6); animation: fadeUp 1.2s ease-out 0.4s backwards; }
   header .tagline { font-size: 0.95rem; color: #e8dcc2; margin-top: 0.8rem; font-style: normal; font-family: -apple-system, Helvetica, Arial, sans-serif; letter-spacing: 0.08em; }
+  header .location {
+    position: absolute; bottom: 1.1rem; right: 1.4rem; z-index: 2;
+    font-family: -apple-system, Helvetica, Arial, sans-serif;
+    font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(245,241,232,0.85); text-shadow: 0 1px 6px rgba(0,0,0,0.7);
+    transition: opacity 0.6s ease;
+  }
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(18px); }
     to { opacity: 1; transform: translateY(0); }
@@ -100,11 +124,47 @@
 <body>
 
 <header>
-  <h1>Sergio Medel</h1>
-  <div class="rule"></div>
-  <p>Executive Chef</p>
-  <p class="tagline">From Valdivia, Chile — to the world</p>
+  <div class="slideshow" id="slideshow">
+    <div class="slide active" style="background-image:url('img/chile/puerto-varas.jpg')" data-location="Puerto Varas · Los Lagos"></div>
+    <div class="slide" style="background-image:url('img/chile/santiago.jpg')" data-location="Santiago · Andes"></div>
+    <div class="slide" style="background-image:url('img/chile/araucania.jpg')" data-location="Araucanía"></div>
+    <div class="slide" style="background-image:url('img/chile/atacama-flamenco.jpg')" data-location="Atacama Desert"></div>
+    <div class="slide" style="background-image:url('img/chile/lauca-parinacota.jpg')" data-location="Lauca National Park"></div>
+    <div class="slide" style="background-image:url('img/chile/torres-cuernos.jpg')" data-location="Torres del Paine"></div>
+    <div class="slide" style="background-image:url('img/chile/torres-atardecer.jpg')" data-location="Torres del Paine"></div>
+    <div class="slide" style="background-image:url('img/chile/torres-base.jpg')" data-location="Torres del Paine"></div>
+  </div>
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>Sergio Medel</h1>
+    <div class="rule"></div>
+    <p>Executive Chef</p>
+    <p class="tagline">From Valdivia, Chile — to the world</p>
+  </div>
+  <div class="location" id="slide-location">Puerto Varas · Los Lagos</div>
 </header>
+<script>
+(function() {
+  var slides = document.querySelectorAll('#slideshow .slide');
+  var label = document.getElementById('slide-location');
+  var i = 0;
+  // Preload
+  slides.forEach(function(s) {
+    var img = new Image();
+    img.src = s.style.backgroundImage.slice(5, -2);
+  });
+  setInterval(function() {
+    slides[i].classList.remove('active');
+    i = (i + 1) % slides.length;
+    slides[i].classList.add('active');
+    label.style.opacity = 0;
+    setTimeout(function() {
+      label.textContent = slides[i].getAttribute('data-location');
+      label.style.opacity = 1;
+    }, 600);
+  }, 5000);
+})();
+</script>
 
 <nav>
   <a href="#about">About</a>
@@ -152,6 +212,14 @@
     <div class="service">
       <h3>Private Dinners</h3>
       <p>Special occasions deserve a personal touch — private chef dinners tailored to you and your guests.</p>
+    </div>
+    <div class="service">
+      <h3>Consulting</h3>
+      <p>Culinary consulting for restaurants and hotels — menu development, kitchen operations, cost control, and team training.</p>
+    </div>
+    <div class="service">
+      <h3>Restaurant Openings</h3>
+      <p>Opening restaurants from zero: concept, menus, hiring and training the brigade, and setting the standard from day one.</p>
     </div>
   </div>
 </section>
@@ -208,6 +276,8 @@
       <option value="wedding">Wedding</option>
       <option value="corporate">Corporate / Meeting</option>
       <option value="private-dinner">Private dinner</option>
+      <option value="consulting">Consulting</option>
+      <option value="opening">Restaurant opening</option>
       <option value="other">Other</option>
     </select>
     <label for="message">Message</label>
