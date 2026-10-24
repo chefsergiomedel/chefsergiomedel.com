@@ -64,7 +64,33 @@
   #contact a { color: #e8c98a; text-decoration: none; }
   #contact a:hover { text-decoration: underline; }
   #contact p { margin: 0.6rem 0; font-size: 1.1rem; }
-  .hero-img { width: 100%; max-height: 520px; object-fit: cover; display: block; }
+  .hero { position: relative; }
+  .hero img { width: 100%; max-height: 560px; object-fit: cover; display: block; }
+  .hero .caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    color: #f5f1e8; text-align: center; padding: 3rem 1.5rem 1.2rem;
+    font-style: italic; font-size: 1.05rem;
+  }
+  .roots { display: flex; gap: 2rem; align-items: flex-start; margin-top: 1.5rem; flex-wrap: wrap; }
+  .roots img { width: 280px; max-width: 100%; border-radius: 4px; }
+  .roots .text { flex: 1; min-width: 260px; }
+  .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.2rem; margin-top: 0.5rem; }
+  .service { background: #fff; border: 1px solid #e8e0d2; border-radius: 6px; padding: 1.4rem 1.2rem; }
+  .service h3 { font-size: 1.05rem; margin-bottom: 0.4rem; color: var(--accent); }
+  .service p { font-size: 0.95rem; color: var(--muted); font-family: -apple-system, Helvetica, Arial, sans-serif; }
+  form.contact-form { max-width: 520px; margin: 2rem auto 0; text-align: left; }
+  form.contact-form label { display: block; margin: 1rem 0 0.3rem; font-family: -apple-system, Helvetica, Arial, sans-serif; font-size: 0.9rem; color: #cfc7b8; }
+  form.contact-form input, form.contact-form select, form.contact-form textarea {
+    width: 100%; padding: 0.7rem; border: 1px solid #3a3a3a; border-radius: 4px;
+    background: #1e1e1e; color: #f5f1e8; font-size: 1rem; font-family: -apple-system, Helvetica, Arial, sans-serif;
+  }
+  form.contact-form button {
+    margin-top: 1.4rem; padding: 0.8rem 2.2rem; border: none; border-radius: 4px;
+    background: var(--accent); color: #fff; font-size: 1rem; cursor: pointer;
+    font-family: -apple-system, Helvetica, Arial, sans-serif; letter-spacing: 0.06em;
+  }
+  form.contact-form button:hover { background: #6f4a22; }
   .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
   .gallery img { width: 100%; height: 260px; object-fit: cover; display: block; border-radius: 4px; }
   .gallery figure { margin: 0; }
@@ -83,18 +109,28 @@
 <nav>
   <a href="#about">About</a>
   <a href="#experience">Experience</a>
+  <a href="#services">Services</a>
   <a href="#gallery">Gallery</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<img class="hero-img" src="img/foto-emplatando-bn.jpg" alt="Chef Sergio Medel plating a dish">
+<div class="hero">
+  <img src="img/chile-collage.png" alt="Chile — from the Atacama Desert to Patagonia">
+  <div class="caption">From the Atacama Desert to Patagonia — this is where I come from.</div>
+</div>
 
 <section id="about">
   <h2>About</h2>
   <div class="rule"></div>
   <p>I'm Sergio Medel, an Executive Chef based in southern Utah, currently leading the kitchen at <strong>Añu Restaurant</strong> inside the Hotel De Novo Springdale, Tapestry Collection by Hilton — minutes from Zion National Park.</p>
-  <p style="margin-top:1rem;">I was born in Valdivia, Chile, where my love for cooking began. I trained in international gastronomy back home and even competed on the first season of Top Chef Chile — an experience that shaped the way I cook and lead. Chile gave me my roots: respect for the ingredient, fire, and feeding people well.</p>
-  <p style="margin-top:1rem;">My cooking is rooted in classic technique and driven by the seasons: honest plates, bold flavors, and hospitality that makes people want to come back. Over the past decade I've opened restaurants, led high-volume kitchens, and built teams across California, Nevada, and Utah.</p>
+  <div class="roots">
+    <img src="img/chile-mapuche.jpg" alt="Mapuche heritage, Chile">
+    <div class="text">
+      <p>I was born in Valdivia, Chile, where my love for cooking began. I trained in international gastronomy back home and even competed on the first season of Top Chef Chile — an experience that shaped the way I cook and lead.</p>
+      <p style="margin-top:1rem;">Chile gave me my roots: respect for the ingredient, fire, and feeding people well. From the Mapuche heritage of the south to the flavors of the whole country — that identity travels with me into every kitchen I lead.</p>
+    </div>
+  </div>
+  <p style="margin-top:1.5rem;">My cooking is rooted in classic technique and driven by the seasons: honest plates, bold flavors, and hospitality that makes people want to come back. Over the past decade I've opened restaurants, led high-volume kitchens, and built teams across California, Nevada, and Utah.</p>
 </section>
 
 <section id="experience">
@@ -127,6 +163,29 @@
     <div class="where">Evan Steak House</div>
     <div class="when">2021</div>
     <p>Executive Chef in Los Angeles, CA.</p>
+  </div>
+</section>
+
+<section id="services">
+  <h2>Services</h2>
+  <div class="rule"></div>
+  <div class="services">
+    <div class="service">
+      <h3>Catering</h3>
+      <p>Full-service catering for events of any size — custom menus, professional staff, and flawless execution.</p>
+    </div>
+    <div class="service">
+      <h3>Weddings</h3>
+      <p>Unforgettable wedding menus, from intimate ceremonies to grand receptions. Tastings and custom planning included.</p>
+    </div>
+    <div class="service">
+      <h3>Corporate & Meetings</h3>
+      <p>Business lunches, conferences, and corporate events with polished, reliable service.</p>
+    </div>
+    <div class="service">
+      <h3>Private Dinners</h3>
+      <p>Special occasions deserve a personal touch — private chef dinners tailored to you and your guests.</p>
+    </div>
   </div>
 </section>
 
@@ -167,6 +226,27 @@
   <p><a href="mailto:chef@chefsergiomedel.com">chef@chefsergiomedel.com</a></p>
   <p><a href="tel:+14355229081">(435) 522-9081</a></p>
   <p style="margin-top:1.2rem;"><a href="https://www.linkedin.com/in/sergio-a-medel-r-6174b360">LinkedIn</a></p>
+
+  <form class="contact-form" action="https://formsubmit.co/chef@chefsergiomedel.com" method="POST">
+    <input type="hidden" name="_subject" value="New inquiry from chefsergiomedel.com">
+    <input type="hidden" name="_captcha" value="false">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" name="phone" required>
+    <label for="service">Service needed</label>
+    <select id="service" name="service" required>
+      <option value="">Select a service…</option>
+      <option value="catering">Catering</option>
+      <option value="wedding">Wedding</option>
+      <option value="corporate">Corporate / Meeting</option>
+      <option value="private-dinner">Private dinner</option>
+      <option value="other">Other</option>
+    </select>
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="4"></textarea>
+    <button type="submit">Send</button>
+  </form>
 </section>
 
 <footer>
